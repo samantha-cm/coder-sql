@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi plantilla de Ingreso de Datos en EJS</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">    
+    <script defer src="/socket.io/socket.io.js"></script>
+    <script defer src="/js/main.js"></script>
+</head>
+<body>
+    <div class="container mt-3">
+        <div class="jumbotron">
+            <h1 style="color:blue;">Ingrese datos</h1>
+            <br>
+
+            <form onsubmit="return tomarProducto(this)">
+                
+                <div class="form-group">
+                    <label for="title"><b>Producto</b></label>
+                    <input id="title" class="form-control" type="text" name="title">
+                </div>
+
+                <div class="form-group">
+                    <label for="price"><b>Precio</b></label>
+                    <input id="price" class="form-control" type="number" name="price">
+                </div>            
+
+                <div class="form-group">
+                    <label for="thumbnail"><b>Link a Imagen</b></label>
+                    <input id="thumbnail" class="form-control" type="text" name="thumbnail">
+                </div>
+
+                <input type="submit" value="Enviar">
+            </form>
+            <h2 style="color:crimson;">Historial</h2>
+            <%- include('./tabla')-%>
+        </div>
+    </div>
+    <div>
+        <%- include('./chat')-%>
+    </div>
+</body>
+
+</html>
